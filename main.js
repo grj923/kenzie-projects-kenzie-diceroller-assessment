@@ -4,11 +4,19 @@ let Total = document.querySelector("#Total");
 let ShowAllRolls = document.querySelector("#ShowAllRolls");
 let Dice = document.querySelector("#Dice");
 let ResetButton = document.querySelector("#Reset");
+let NumberOfSidesButton = document.querySelector("#DiceSides");
+let NumberOfDiceSides = document.querySelector("#SideToDice");
 let dieRolls = [];
 let NewDice = [];
 let index = 0;
 let NumberRolled = 0;
 let ArrayTotal = 0;
+
+DiceSides.addEventListener("click", function () {
+  y = NumberOfDiceSides.value;
+  console.log("Sides on Dice");
+  console.log("Dice has " + y + " Sides");
+});
 
 Roll.addEventListener("click", function () {
   console.log("Dice Rolled");
@@ -16,7 +24,8 @@ Roll.addEventListener("click", function () {
   console.log("Dice to Role is " + x);
 
   while (index < x) {
-    let NumberRolled = 1 + Math.floor(Math.random() * 6);
+    y = NumberOfDiceSides.value;
+    let NumberRolled = 1 + Math.floor(Math.random() * y);
     console.log("Dice Value " + NumberRolled);
     ShowAllRolls.addEventListener("click", function () {
       let NewDice = '<li class="Dice">' + NumberRolled + "</li>";
@@ -35,6 +44,7 @@ ResetButton.addEventListener("click", function () {
   document.getElementById("NumberOfDice").value = null;
   NewDice = null;
   document.getElementById("Dice").innerHTML = "";
+  document.getElementById("SideToDice").value = "";
 });
 // ShowAllRolls.addEventListener("click", function () {
 // console.log("Show me What I rolled");
