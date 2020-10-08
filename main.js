@@ -3,6 +3,7 @@ let Roll = document.querySelector("#Roll");
 let Total = document.querySelector("#Total");
 let ShowAllRolls = document.querySelector("#ShowAllRolls");
 let Dice = document.querySelector("#Dice");
+let ResetButton = document.querySelector("#Reset");
 let dieRolls = [];
 let NewDice = [];
 let index = 0;
@@ -28,10 +29,16 @@ Roll.addEventListener("click", function () {
     // let ArrayTotal = dieRolls.reduce((a, b) => a + b);
   }
 });
-
-ShowAllRolls.addEventListener("click", function () {
-  console.log("Show me What I rolled");
+ResetButton.addEventListener("click", function () {
+  console.log("I want to play again");
+  Total.innerHTML = 0;
+  document.getElementById("NumberOfDice").value = null;
+  NewDice = null;
+  document.getElementById("Dice").innerHTML = "";
 });
+// ShowAllRolls.addEventListener("click", function () {
+// console.log("Show me What I rolled");
+// });
 
 console.log(dieRolls);
 // console.log(ArrayTotal);
