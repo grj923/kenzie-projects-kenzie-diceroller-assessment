@@ -17,11 +17,15 @@ Roll.addEventListener("click", function () {
   while (index < x) {
     let NumberRolled = 1 + Math.floor(Math.random() * 6);
     console.log("Dice Value " + NumberRolled);
-    let NewDice = '<li class="Dice">' + NumberRolled + "</li>";
-    Dice.innerHTML += NewDice;
+    ShowAllRolls.addEventListener("click", function () {
+      let NewDice = '<li class="Dice">' + NumberRolled + "</li>";
+      Dice.innerHTML += NewDice;
+    });
+
     dieRolls.push(NumberRolled);
     index++;
-    let ArrayTotal = dieRolls.reduce((a, b) => a + b);
+    Total.innerHTML = dieRolls.reduce((a, b) => a + b, 0);
+    // let ArrayTotal = dieRolls.reduce((a, b) => a + b);
   }
 });
 
@@ -30,4 +34,4 @@ ShowAllRolls.addEventListener("click", function () {
 });
 
 console.log(dieRolls);
-console.log(ArrayTotal);
+// console.log(ArrayTotal);
